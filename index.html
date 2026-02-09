@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -647,29 +648,26 @@
     <div id="accessModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2>Request Beta Access</h2>
-            <p>Quantum Terminal is currently in early access. Fill out the form below to request authorization.</p>
-            <form action="https://formspree.io/f/xovapbaw" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="company">Company/Organization (Optional)</label>
-                    <input type="text" id="company" name="company">
-                </div>
-                <div class="form-group">
-                    <label for="message">Why are you interested in Quantum Terminal? *</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <input type="hidden" name="_subject" value="New Beta Access Request - Quantum Terminal">
-                <input type="hidden" name="_cc" value="martestudios.srl@gmail.com">
-                <button type="submit" class="submit-btn">Submit Request</button>
-            </form>
+            <h2>🚀 Test Quantum Terminal</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px;">
+                Quantum Terminal is currently in early access testing phase.
+            </p>
+            <div
+                style="background: rgba(0, 242, 255, 0.1); border-left: 4px solid var(--primary-cyan); padding: 25px; border-radius: 10px; margin-bottom: 20px;">
+                <p style="font-size: 1.1rem; margin-bottom: 15px;">
+                    📧 <strong>To test our algorithm, please send an email to:</strong>
+                </p>
+                <p style="font-size: 1.3rem; color: var(--primary-cyan); font-weight: 700; margin: 0;">
+                    <a href="mailto:g.brancato@martestudios.com"
+                        style="color: var(--primary-cyan); text-decoration: none;">
+                        g.brancato@martestudios.com
+                    </a>
+                </p>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                Include your name, company (if applicable), and why you're interested in testing Quantum Terminal.
+                We'll get back to you with access credentials.
+            </p>
         </div>
     </div>
 
