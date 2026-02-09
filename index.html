@@ -228,6 +228,156 @@
             transform: translateY(-3px);
         }
 
+        /* Beta Badge */
+        .beta-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 2px solid var(--primary-cyan);
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 242, 255, 0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--primary-cyan);
+        }
+
+        .modal h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-cyan);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 242, 255, 0.4);
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: rgba(255, 107, 53, 0.1);
+            border: 2px solid #ff6b35;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 60px auto;
+            max-width: 1200px;
+        }
+
+        .disclaimer h3 {
+            color: #ff6b35;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .disclaimer p {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
         /* Features Section */
         .features {
             padding: 100px 5%;
@@ -382,18 +532,20 @@
                 <img src="logo.svg" alt="Quantum Logo" class="logo-icon">
                 <span class="logo-text">QUANTUM</span>
             </div>
-            <a href="https://quantum-terminal.streamlit.app" class="nav-btn">Launch App</a>
+            <button class="nav-btn" onclick="openModal()">Request Access</button>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
+            <span class="beta-badge">🚀 Early Access Beta</span>
             <img src="logo.svg" alt="Quantum Terminal" class="hero-logo">
             <h1>Next-Gen Financial Terminal</h1>
-            <p>Experience the future of portfolio management with AI-powered insights, real-time analytics, and
-                quantum-inspired algorithms</p>
+            <p>Advanced portfolio analysis powered by econophysics and quantum finance algorithms.<br>
+                <strong>Currently in beta - Authorization required for access</strong>
+            </p>
             <div class="cta-buttons">
-                <a href="https://quantum-terminal.streamlit.app" class="btn-primary">Get Started Free</a>
+                <button class="btn-primary" onclick="openModal()">Request Beta Access</button>
                 <a href="#features" class="btn-secondary">Explore Features</a>
             </div>
         </div>
@@ -465,24 +617,95 @@
         </div>
     </section>
 
+    <!-- Legal Disclaimer -->
+    <div class="disclaimer">
+        <h3>⚠️ Important Legal Notice</h3>
+        <p>
+            <strong>Quantum Terminal is NOT a financial advisor or investment consultant.</strong> This platform
+            provides
+            analytical tools based on econophysics and quantum finance algorithms for educational and research purposes
+            only.
+            All analysis, metrics, and recommendations are generated by mathematical models and should not be considered
+            as
+            financial advice. Users are solely responsible for their investment decisions. Past performance does not
+            guarantee
+            future results. Always consult with a qualified financial advisor before making investment decisions.
+        </p>
+    </div>
+
     <section class="hero">
         <div class="hero-content">
             <h1>Ready to Start?</h1>
-            <p>Join thousands of traders and investors using Quantum Terminal V11 PRO</p>
+            <p>Request access to experience the future of quantitative analysis</p>
             <div class="cta-buttons">
-                <a href="https://quantum-terminal.streamlit.app" class="btn-primary">Launch Terminal</a>
+                <button class="btn-primary" onclick="openModal()">Request Beta Access</button>
             </div>
         </div>
     </section>
 
+    <!-- Access Request Modal -->
+    <div id="accessModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Request Beta Access</h2>
+            <p>Quantum Terminal is currently in early access. Fill out the form below to request authorization.</p>
+            <form action="https://formspree.io/f/xovapbaw" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company/Organization (Optional)</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message">Why are you interested in Quantum Terminal? *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="New Beta Access Request - Quantum Terminal">
+                <input type="hidden" name="_cc" value="martestudios.srl@gmail.com">
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-links">
-            <a href="https://quantum-terminal.streamlit.app">App</a>
+            <a href="#" onclick="openModal(); return false;">Request Access</a>
             <a href="#features">Features</a>
-            <a href="mailto:support@quantumterminal.com">Contact</a>
+            <a href="mailto:martestudios.srl@gmail.com">Contact</a>
         </div>
         <p>&copy; 2026 Quantum Terminal V11 PRO. All rights reserved.</p>
     </footer>
+
+    <script>
+        function openModal() {
+            document.getElementById('accessModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('accessModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('accessModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
